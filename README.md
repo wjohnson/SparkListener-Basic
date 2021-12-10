@@ -5,6 +5,8 @@ This is part of a sample that helps you demonstrate how to debug a Spark Listene
 
 This sample is geared toward Scala 2.12 and Spark 3.2.0 but can be updated by changing `./lib/build.gradle` sparkVersion and scalaVersion.
 
+You should set up Spark and WSL following [nicholsonjohnc's](https://github.com/nicholsonjohnc/spark-wsl-install) steps.
+
 ## Using VS Code for Debugging
 
 * Open this project in VS Code with the Java Extension Pack and wait for the Java project to be successfully imported.
@@ -17,7 +19,7 @@ This sample is geared toward Scala 2.12 and Spark 3.2.0 but can be updated by ch
 * Execute a spark job like this:
 
 ```scala
-spark.sparkContext.setLogLevel("ERROR") // This lets you see log messages in stdout
+spark.sparkContext.setLogLevel("INFO") // This lets you see log messages in stdout
 import spark.implicits._
 val columns = Seq("city","population")
 val data = Seq(("Chicago", "20000"), ("NYC", "100000"), ("Detroit", "3000"))
