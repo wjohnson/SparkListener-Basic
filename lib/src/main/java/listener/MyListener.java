@@ -20,7 +20,7 @@ public class MyListener extends org.apache.spark.scheduler.SparkListener {
   @Override
   public void onOtherEvent(SparkListenerEvent event) {
     log.info("MYLISTENER: ON OTHER EVENT END");
-    log.info("ON OTHER EVENT of TYPE:",event.getClass().getName());
+    log.info(String.format("ON OTHER EVENT of TYPE: %s",event.getClass().getName()));
 
   }
 
@@ -35,7 +35,7 @@ public class MyListener extends org.apache.spark.scheduler.SparkListener {
     log.info("MYLISTENER: ON JOB START");
     Set<String> keys = jobStart.properties().stringPropertyNames();
     for (String key : keys){
-      log.info(key, jobStart.properties().getProperty(key));
+      log.info(String.format("%s: %s", key, jobStart.properties().getProperty(key)));
     }
   }
 
